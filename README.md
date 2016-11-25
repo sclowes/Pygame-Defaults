@@ -36,5 +36,39 @@ A module for python's pygame to allow easy creation of key elements in object or
 
   __*text_create_mid(text, midtop, font, colour, surface)*__
     Creates text in the colour and font specified on a given surface, where the middle top of the text is at the co-ordinate given in midtop.
-    
 
+  __*text_create_centre_point(text, (x, y), font, colour, surface)*__
+    Creates text in the colour and font specified on a given surface, where the center of the text is at the co-ordinate given in (x,y).
+
+  __*def text_create_left_centre(text, (left, centre), font, colour, surface) *__
+    Creates text in the colour and font specified on a given surface, where the left hand vertical centre of the text is at the co-ordinate given in (left, centre).
+
+  __*def text_create_centre(text, (left, top, width, height), font, colour, surface) *__
+    Creates text in the colour and font specified on a given surface, and places the text dead in the centre of the rectangle given.
+
+  __*def text_create_left(text, (left, top), font, colour, surface) *__
+    Creates text in the colour and font specified on a given surface, where the top left of the text is at the co-ordinate given in (left, top).
+
+  __*def text_create_bleft(text, (left, bot), font, colour, surface) *__
+    Creates text in the colour and font specified on a given surface, where the bottom left of the text is at the co-ordinate given in (left, bot).
+
+  __*def text_create_bcentre(text, (centre, bot), font, colour, surface) *__
+    Creates text in the colour and font specified on a given surface, where the bottom horizontal centre of the text is at the co-ordinate given in (centre, bot).
+
+  __*def get_text_width(text, font) *__
+    Returns the width in pixels of the text in the given font.
+
+  __*def get_text_height(text, font) *__
+    Returns the height in pixels of the text in the given font.
+
+  __*def check_mouse_rect((x, y), rect) *__
+    Returns true if the user's mouse is within the given rectangle.
+
+  __*def check_mouse_round_rect((x, y), rect, radius) *__
+    Returns true if the user's mouse is within the given rounded rectangle.
+
+  __*def check_mouse_circ((x, y), centre, rad) *__
+    Returns true if the user's mouse is within a distance less than the radius from the given point.
+
+  __*def check_mouse_qur_rect((x, y), rect, radius, corner) *__
+    Returns true if the user's mouse is within the given rectangle with 1 edge rounded.
