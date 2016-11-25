@@ -28,6 +28,15 @@ Current Functions:
   image_create_centre(file_loc, (x, y), surface)
     Loads an image file from a specified location, and displays it on a given surface where the centre of the image is displayed in the position specified in the co-ordinate given.
 
+  image_create_centre_surface(pic_surf, (x, y), surface)
+    Displays an already loaded picture from a surface onto a new surface, where the centre is at the co-ordinates specified.
+
+  image_create_midtop_surface(pic_surf, (x, y), surface)
+    Displays an already loaded picture from a surface onto a new surface, where the middle top point is at the co-ordinates specified.
+
+  text_create_mid(text, midtop, font, colour, surface)
+    Creates text in the colour and font specified on a given surface, where the middle top of the text is at the co-ordinate given in midtop.
+    
 
 
 
