@@ -1,3 +1,5 @@
+#MIT License
+#Copyright (c) 2016 Joseph Baguley, Samuel Clowes
 import pygame
 from sys import exit as leave
 from pygame import gfxdraw
@@ -19,7 +21,7 @@ def create_grad(c1, c2, (width, height)): # creates a gradient surface with 2 co
     return fst
 
 
-def draw_round_rect((x, y, width, height), rad, colour, surface): # draws a rounded rectangle on screen using 2 rectangles in a + shape and 4 
+def draw_round_rect((x, y, width, height), rad, colour, surface): # draws a rounded rectangle on screen using 2 rectangles in a + shape and 4
     pygame.draw.rect(surface, colour, [x + rad, y, width - rad * 2, height])
     pygame.draw.rect(surface, colour, [x, y + rad, width, height - rad * 2])
     pygame.draw.circle(surface, colour, [x + rad, y + rad], rad)
@@ -247,7 +249,7 @@ def check_mouse_qur_rect((x, y), rect, radius, corner): # checks if the coord is
 class ListBox: # List of items that can scroll up and down
     def __init__(self, surface, scene, layername, font, items, colour, boxcolour, radius,(x, y, width, height)): # imports variables
         self.scene = scene # assigns all of the imported variables to self variables to save them. Also links itself to  the scene's commands so it can be controlled from there
-        self.surface = surface 
+        self.surface = surface
         self.layerSurface = scene.layerSurface
         self.layerName = layername
         self.font = font
@@ -284,7 +286,7 @@ class ListBox: # List of items that can scroll up and down
         self.height = height # stes the original height
         surface2.set_colorkey(self.boxColour) # sets the transparent colour
         surface1.blit(surface2, (0, 0)) # places the surface ontop so that any text that goes over the edge of the box is cut off
-        surface2 = self.surface.copy() 
+        surface2 = self.surface.copy()
         surface1.set_colorkey((0, 255, 0))
         surface2.blit(surface1, (0, 0))
         self.surface.blit(surface2, (0, 0)) # places it onto the main surface
@@ -423,7 +425,7 @@ class MultiChoice: # multiple choice object
         if self.off:
             return 0 # if off return 0
         draw_round_rect(self.rect, self.radius, self.back_colour, self.surface) # draws a rounded rectangle
-        self.diff = self.text_draw([self.rect[0], self.rect[1], self.rect[2], self.rect[3]/4], self.title, 0) # the height the title needs and also draws the title 
+        self.diff = self.text_draw([self.rect[0], self.rect[1], self.rect[2], self.rect[3]/4], self.title, 0) # the height the title needs and also draws the title
         if self.choice != -1: # if the user has selected a choice then highlight the chosen answer with a lighter colour
             if self.choice == 0:
                 pygame.draw.rect(self.surface, self.highlight_colour,
@@ -481,7 +483,7 @@ class MultiChoice: # multiple choice object
                 colour = self.highlight_colour # sets colour of the beckground to what it is in the main draw
             else:
                 colour = self.back_colour
-            x, y = self.surface.get_width(), self.surface.get_height() # creates 2 new surfaces 
+            x, y = self.surface.get_width(), self.surface.get_height() # creates 2 new surfaces
             total_height = (get_text_height(text, self.font)+2) * len(lines)
             rect[3] = total_height+2
             surface1 = pygame.surface.Surface((x, y))
@@ -571,7 +573,7 @@ class MultiChoice: # multiple choice object
                     self.lock = True
                     # checks to see if any of the answers have been pressed it pick the right choice depending on which answer was pressed
                     if check_mouse_rect(mouse_pos, [self.rect[0], self.rect[1] + self.diff + self.rect[3]/4,
-                                                    self.rect[2]/2, 3*self.rect[3]/8 - self.diff/2]): 
+                                                    self.rect[2]/2, 3*self.rect[3]/8 - self.diff/2]):
                         self.choice = 0
                     elif check_mouse_rect(mouse_pos, [self.rect[0] + self.rect[2]/2,
                                                       self.rect[1] + self.diff + self.rect[3]/4, self.rect[2]/2,
@@ -954,7 +956,7 @@ class TextBox: # user input textbox class
                 if event.key == pygame.K_RETURN: # returns text if enter is pressed
                     return self.text
                 elif event.key != pygame.K_BACKSPACE and event.key != 9 and event.key != 27:# if the event.key isnt backspace or a special button (eg ctrl)
-                    if event.key < 256: # 
+                    if event.key < 256: #
                         if self.charLimit is None or len(self.text) < self.charLimit:
                             self.text += event.unicode.encode('ascii', 'replace') # inupts the character key and converts it to ascii format before adding it to the text in  the box
                 elif event.key == pygame.K_BACKSPACE: # if the key was backspace then it deletes the last character
@@ -1125,7 +1127,7 @@ class LayerSurface: # Main layersurface object to be used in scenes
         if self.off: # updates after its been drawn with flip, and goto can specify a layer to draw up to then stop
             if flip:
                 pygame.display.flip()
-            return False 
+            return False
         if goto is None or goto not in self.layers:
             goto = len(self.layers)-1
         else:
